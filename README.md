@@ -1,30 +1,30 @@
 Employee Management Task
 .All API Developed with Validation & Tested on PostMan & Swagger API Also
 
-<B>Employee<B>
+<B>Employee</B><br>
 .Add Employee based on department & salary<br>
 .created ManyEmployee have one department<br>
 .created ManyEmployee have one salary<br>
-.Search Employee based on salary range
-.Search Employee based on department name
-.search Employee based on designation 
-.GetAll Employees using pagignation
-.Update Employee
-.Delete Employee
+.Search Employee based on salary range<br>
+.Search Employee based on department name<br>
+.search Employee based on designation<br> 
+.GetAll Employees using pagignation<br>
+.Update Employee<br>
+.Delete Employee<br>
 
 
-Salary
-.Add Salary
-.Get All Salary
-.Update Salary
-.Delete Salary
+<B>Salary</B><br>
+.Add Salary<br>
+.Get All Salary<br>
+.Update Salary<br>
+.Delete Salary<br>
 
-Department
-.Add Department
-.Search Department based on ID
-.Get All Department
-.Update Department
-.Delete Department
+<B>Department</B>
+.Add Department<br>
+.Search Department based on ID<br>
+.Get All Department<br>
+.Update Department<br>
+.Delete Department<br>
 
 
 
