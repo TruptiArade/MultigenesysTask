@@ -1,10 +1,10 @@
 Employee Management Task
 .All API Developed with Validation & Tested on PostMan & Swagger API Also
 
-Employee
-.Add Employee based on department & salary
-.created ManyEmployee have one department
-.created ManyEmployee have one salary
+<B>Employee<B>
+.Add Employee based on department & salary<br>
+.created ManyEmployee have one department<br>
+.created ManyEmployee have one salary<br>
 .Search Employee based on salary range
 .Search Employee based on department name
 .search Employee based on designation 
