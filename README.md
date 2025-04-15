@@ -19,7 +19,7 @@ Employee Management Task
 .Update Salary<br>
 .Delete Salary<br>
 
-<B>Department</B>
+<B>Department</B><br>
 .Add Department<br>
 .Search Department based on ID<br>
 .Get All Department<br>
