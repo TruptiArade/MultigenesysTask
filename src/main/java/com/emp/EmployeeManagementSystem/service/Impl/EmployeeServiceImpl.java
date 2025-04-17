@@ -8,6 +8,7 @@ import com.emp.EmployeeManagementSystem.entity.Designation;
 import com.emp.EmployeeManagementSystem.entity.Employee;
 import com.emp.EmployeeManagementSystem.entity.Salary;
 import com.emp.EmployeeManagementSystem.repository.DepartmentRepository;
+import com.emp.EmployeeManagementSystem.repository.EmployeeCriteriaRepository;
 import com.emp.EmployeeManagementSystem.repository.EmployeeRepository;
 import com.emp.EmployeeManagementSystem.repository.SalaryRepository;
 import com.emp.EmployeeManagementSystem.service.EmployeeService;
@@ -26,6 +27,9 @@ public class EmployeeServiceImpl implements EmployeeService
 {
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private EmployeeCriteriaRepository employeeCriteriaRepository;
 
     @Autowired
     private DepartmentRepository departmentRepository;
@@ -154,6 +158,19 @@ public class EmployeeServiceImpl implements EmployeeService
         Employee emp = employeeRepository.findById(id)
                 .orElseThrow(() -> new ResourseNotFoundException("Employee not found with ID: " + id));
         employeeRepository.delete(emp);
+    }
+
+    @Override
+    public List<EmployeeDTO> searchEmployees(String designation, String departmentName, Integer minSalary, Integer maxSalary) {
+        List<Employee> employees = employeeCriteriaRepository.searchEmployees(designation, departmentName, minSalary, maxSalary);
+
+        if (employees.isEmpty()) {
+            throw new ResourseNotFoundException("No employees found with the provided filters");
+        }
+
+        return employees.stream()
+                .map(e -> modelMapper.map(e, EmployeeDTO.class))
+                .toList();
     }
 
 

@@ -27,6 +27,7 @@ public interface EmployeeService
 
     void deleteEmployee(int id);
 
+    List<EmployeeDTO> searchEmployees(String designation, String departmentName, Integer minSalary, Integer maxSalary);
 
 
 

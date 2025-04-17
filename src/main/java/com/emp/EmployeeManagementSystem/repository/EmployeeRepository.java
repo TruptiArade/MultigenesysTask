@@ -11,20 +11,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface EmployeeRepository extends JpaRepository <Employee , Integer >
-{
-
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
     List<Employee> findByDesignation(Designation designation);
 
     @Query("SELECT e FROM Employee e WHERE e.salary.amount BETWEEN :minSalary AND :maxSalary")
     List<Employee> findEmployeesBySalaryRange(@Param("minSalary") int minSalary, @Param("maxSalary") int maxSalary);
 
-
     List<Employee> findByDepartment_Dname(String dname);
-
-
-
-
-
 }
+

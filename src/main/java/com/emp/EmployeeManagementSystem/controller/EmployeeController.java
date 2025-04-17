@@ -3,6 +3,7 @@ package com.emp.EmployeeManagementSystem.controller;
 import com.emp.EmployeeManagementSystem.dto.EmployeeDTO;
 import com.emp.EmployeeManagementSystem.entity.Department;
 import com.emp.EmployeeManagementSystem.entity.Designation;
+import com.emp.EmployeeManagementSystem.entity.Employee;
 import com.emp.EmployeeManagementSystem.entity.Response;
 import com.emp.EmployeeManagementSystem.service.DepartmentService;
 import com.emp.EmployeeManagementSystem.service.EmployeeService;
@@ -118,4 +119,20 @@ public class EmployeeController {
         employeeService.deleteEmployee(id);
         return ResponseEntity.ok("Employee deleted successfully with ID: " + id);
     }
+
+    @Operation(summary = "Search Employees using Criteria API", description = "Search by optional filters: designation, department, salary range")
+    @ApiResponse(responseCode = "200", description = "Filtered employee list")
+    @GetMapping("/search/criteria")
+    public ResponseEntity<List<EmployeeDTO>> searchEmployeesByCriteria(
+            @RequestParam(required = false) String designation,
+            @RequestParam(required = false) String departmentName,
+            @RequestParam(required = false) Integer minSalary,
+            @RequestParam(required = false) Integer maxSalary
+    ) {
+        List<EmployeeDTO> employees = employeeService.searchEmployees(designation, departmentName, minSalary, maxSalary);
+        return ResponseEntity.ok(employees);
+    }
+
+
+
 }
