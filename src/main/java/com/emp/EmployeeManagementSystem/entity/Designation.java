@@ -1,6 +1,7 @@
 package com.emp.EmployeeManagementSystem.entity;
 
-public enum Designation {
+public enum Designation
+{
     MANAGER,
     DEVELOPER,
     TESTER,
